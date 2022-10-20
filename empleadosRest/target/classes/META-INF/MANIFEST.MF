@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: AWSFF4STARTUPS\alumno7
+Build-Jdk: 17.0.4.1
+Implementation-Title: empleadoRest
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: jorge.hola
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: https://projects.spring.io/spring-cloud/empleadoRest
+Created-By: Maven Integration for Eclipse
+

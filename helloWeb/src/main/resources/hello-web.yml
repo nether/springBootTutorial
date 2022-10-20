@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: helloWeb
+  mvc: 
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+server:
+  port: 5555
+app:
+  helloServiceUrl: http://localhost:30000/saluda
+  empleadoServiceUrl: http://localhost:31000/empleado

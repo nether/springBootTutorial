@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: empleadosWeb
+  mvc: 
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+server:
+  port: 3333
+app:
+  helloServiceUrl: http://localhost:30000/saluda/
+  empleadosServiceUrl: http://localhost:31000/empleados/
+  empleadosServiceAlias: empleado-service
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+    registerWithEureka: false
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    # Generamos id aleatorio para poder registrar diferentes instancias con eureka
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
