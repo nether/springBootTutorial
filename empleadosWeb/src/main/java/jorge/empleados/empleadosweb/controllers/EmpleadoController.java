@@ -3,6 +3,7 @@ package jorge.empleados.empleadosweb.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jorge.empleados.empleadosweb.services.EmpleadoService;
+import jorge.empleados.exceptions.EmpleadoDuplicadoException;
+import jorge.empleados.exceptions.EmpleadoNoEncontradoException;
+import jorge.empleados.exceptions.EmpleadosException;
 import jorge.empleados.model.Empleado;
 
 /*
@@ -77,6 +81,30 @@ public class EmpleadoController {
 		//empleadoService.
 		empleadoService.modificarEmpleado(empleado.getCif(), empleado);
 		model.addAttribute("mensaje", "Empleado " + empleado.toString() + " modificado");
+		return "form-empleados";
+	}
+	
+	@ExceptionHandler(EmpleadoNoEncontradoException.class)
+	public String handleEmpleadoNoEncontradoException(Model model) {
+		model.addAttribute("mensaje", "Error: El empleado a procesar no existe");
+		return "form-empleados";
+	}
+	
+	@ExceptionHandler(EmpleadoDuplicadoException.class)
+	public String handleEmpleadoDuplicadoException(Model model) {
+		model.addAttribute("mensaje", "Error: El empleado a procesar ya existe");
+		return "form-empleados";
+	}
+	
+	@ExceptionHandler(EmpleadosException.class)
+	public String handleEmpleadosException(Model model) {
+		model.addAttribute("mensaje", "Error: No se puede procesar el empleado");
+		return "form-empleados";
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public String handleException(Model model) {
+		model.addAttribute("mensaje", "Error: No se pudo procesar la petición. Reinténtalo en un rato");
 		return "form-empleados";
 	}
 }

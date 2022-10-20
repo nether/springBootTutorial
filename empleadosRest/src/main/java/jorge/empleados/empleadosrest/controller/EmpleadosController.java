@@ -1,8 +1,12 @@
 package jorge.empleados.empleadosrest.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,23 +42,34 @@ public class EmpleadosController {
 	}	
 	
 	@GetMapping(value="/{cif}")
-	public Empleado getEmpleado(@PathVariable String cif) {
-		return empleados.getEmpleado(cif);
+	public Empleado getEmpleado(@PathVariable String cif, HttpServletResponse response)  throws IOException{
+		Empleado empleado = empleados.getEmpleado(cif);
+		if(empleado==null ) {
+			response.sendError(HttpStatus.NOT_FOUND.value());
+		}
+		return empleado;
 	}
 	
 	@PutMapping(value="/{cif}")
-	public Boolean updateEmpleado(@PathVariable String cif, @RequestBody Empleado empleado) {	
+	public Boolean updateEmpleado(@PathVariable String cif, @RequestBody Empleado empleado, HttpServletResponse response) throws IOException {	
 		//empleado.setCif(cif);
-		return empleados.updateEmpleado(cif, empleado);
+		if(!empleados.updateEmpleado(cif, empleado)) {
+			response.sendError(HttpStatus.NOT_FOUND.value());
+		}
+		return true;
 	}	
 	
 	@DeleteMapping(value="/{cif}")
-	public Boolean deleteEmpleado(@PathVariable String cif) {		
+	public Boolean deleteEmpleado(@PathVariable String cif, HttpServletResponse response) throws IOException {		
 		return empleados.deleteEmpleado(cif);
 	}
 	
 	@PostMapping(value="/")
-	public Boolean insertaEmpleado(@RequestBody Empleado empleado) {		
-		return empleados.insertaEmpleado(empleado);
+	public Boolean insertaEmpleado(@RequestBody Empleado empleado, HttpServletResponse response) throws IOException {
+		if(!empleados.insertaEmpleado(empleado)) {
+			response.sendError(HttpStatus.CONFLICT.value());
+		}
+		response.setStatus(HttpStatus.CREATED.value());
+		return true;
 	}
 }
