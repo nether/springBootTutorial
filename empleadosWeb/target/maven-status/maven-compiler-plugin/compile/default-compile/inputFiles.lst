@@ -1,1 +1,15 @@
-/home/alumno7/Documents/curso/wsmicroservicios/holaRest/src/main/java/profe/hello/hellorest/HelloRest.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/HelloService.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/exceptions/EmpleadoDuplicadoException.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/EmpleadosWebServer.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/controllers/HelloWeb.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadoService.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadoServiceRibbonDeclarado.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadosResponseErrorHandled.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadoServiceRibbonProgramado.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadoServiceStatic.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/exceptions/EmpleadosException.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/EmpleadoServiceDynamic.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/model/Empleado.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/exceptions/EmpleadoNoEncontradoException.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/services/HelloServiceImpl.java
+/home/alumno7/Documents/curso/wsmicroservicios/empleadosWeb/src/main/java/jorge/empleados/empleadosweb/controllers/EmpleadoController.java
