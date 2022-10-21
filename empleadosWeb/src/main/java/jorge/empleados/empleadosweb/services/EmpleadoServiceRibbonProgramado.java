@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import jorge.empleados.exceptions.EmpleadosException;
 import jorge.empleados.model.Empleado;
 
 @Service
 @Primary
-@Retryable
+@Retryable(exclude = {EmpleadosException.class}, include = {Exception.class})
 public class EmpleadoServiceRibbonProgramado implements EmpleadoService {
 
 	@Autowired
