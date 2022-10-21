@@ -12,6 +12,10 @@ spring:
 server:
   # port: ${PORT:0}
   port: 7777
+app:
+  helloServiceUrl: http://localhost:30000/saluda/
+  empleadosServiceUrl: http://localhost:31000/empleados/
+  empleadosServiceAlias: empleado-service
 eureka:
   client:
     enabled: true

@@ -7,5 +7,5 @@ import jorge.empleados.model.Departamento;
 public interface DptosDAO {
 
 	List<Departamento> getAllDepartamentos();
-
+	List<String> getEmpleadosXDpto(String idDpto);
 }
