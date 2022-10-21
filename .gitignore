@@ -33,8 +33,7 @@ local.properties
 .buildpath
 
 # sbteclipse plugin
-.target
-
+.target/
 # Tern plugin
 .tern-project
 
@@ -43,7 +42,7 @@ local.properties
 
 # STS (Spring Tool Suite)
 .springBeans
-
+**/.springBeans
 # Code Recommenders
 .recommenders/
 
