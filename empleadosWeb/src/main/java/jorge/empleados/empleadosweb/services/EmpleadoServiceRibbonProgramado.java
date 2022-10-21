@@ -6,6 +6,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.context.annotation.Primary;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,7 @@ import jorge.empleados.model.Empleado;
 
 @Service
 @Primary
+@Retryable
 public class EmpleadoServiceRibbonProgramado implements EmpleadoService {
 
 	@Autowired
@@ -25,7 +27,7 @@ public class EmpleadoServiceRibbonProgramado implements EmpleadoService {
 	@Value("${app.empleadosServiceAlias}")
 	private String empleadoServiceAlias;
 		
-	@Override
+	@Override	
 	public Empleado getEmpleado(String cif) {
 		String getEmpleadoPath = getBaseUrl() + cif;
 		System.out.println("Programmatic Ribbon GET a " + getEmpleadoPath);
