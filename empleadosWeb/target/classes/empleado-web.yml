@@ -11,6 +11,7 @@ app:
   helloServiceUrl: http://localhost:30000/saluda/
   empleadosServiceUrl: http://localhost:31000/empleados/
   empleadosServiceAlias: empleado-service
+  departamentosServiceAlias: departamento-service
 eureka:
   client:
     enabled: true
