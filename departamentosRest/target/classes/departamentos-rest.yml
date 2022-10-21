@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: departamento-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/empleados_simple?serverTimezone=Europe/Madrid 
+    username: maza
+    password: maza
+    testWhileIdle: true
+    validationQuery: Select 1
+server:
+  # port: ${PORT:0}
+  port: 7777
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    # Generamos id aleatorio para poder registrar diferentes instancias con eureka
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
