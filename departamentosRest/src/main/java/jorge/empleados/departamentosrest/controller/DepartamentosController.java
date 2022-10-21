@@ -19,8 +19,8 @@ public class DepartamentosController {
 	private DepartamentosService departamentos;
 	
 	@GetMapping
-	public List<Departamento> getEmpleados() {
-		return departamentos.getDepartamentos();		
+	public List<Departamento> getDepartamentos() {
+		return departamentos.getAllDepartamentos();		
 	}	
 	
 	

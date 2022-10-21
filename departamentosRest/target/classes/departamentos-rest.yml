@@ -1,12 +1,14 @@
 spring:
   application:
     name: departamento-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/empleados_simple?serverTimezone=Europe/Madrid 
-    username: maza
-    password: maza
-    testWhileIdle: true
-    validationQuery: Select 1
+  data:
+    mongodb:
+#      authentication-database: admin
+#      username: root
+#      password: root
+      database: departamentos;
+#      port: 27017
+#      host: localhost   
 server:
   # port: ${PORT:0}
   port: 7777
