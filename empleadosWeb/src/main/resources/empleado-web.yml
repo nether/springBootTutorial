@@ -21,3 +21,24 @@ eureka:
     leaseRenewalIntervalInSeconds: 5
     # Generamos id aleatorio para poder registrar diferentes instancias con eureka
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+ # Config de ribbon
+
+
+
+# Documentación de Ribbon:
+
+# https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-ribbon.html
+# https://github.com/Netflix/ribbon/blob/master/ribbon-core/src/main/java/com/netflix/client/config/CommonClientConfigKey.java
+# https://github.com/Netflix/ribbon/wiki/Working-with-load-balancers
+# https://github.com/Netflix/ribbon/tree/master/ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer
+
+empleado-service:
+  ribbon:
+  # Estrategia de balanceo. Si no especificamos ninguna por defecto es RoundRobinRule 
+  # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+  # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+  # Configuración de retries
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 1
+    OkToRetryOnAllOperations: true
